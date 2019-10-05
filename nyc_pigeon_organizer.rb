@@ -8,17 +8,15 @@ def nyc_pigeon_organizer(data)
         elsif !organized_hash[name][attributes]
           organized_hash[name][attributes]= ["#{attribute_name}"]
         else
-          organized_hash.reduce({}) do |memo_1, (organized_name, organized_attributes)|
-            if name == organized_name
               organized_hash[name][attributes].push("#{attribute_name}")
-            end
-          end
         end
       end
     end
   end
   p organized_hash
 end
+
+
 
 pigeon_data = {
   :color => {

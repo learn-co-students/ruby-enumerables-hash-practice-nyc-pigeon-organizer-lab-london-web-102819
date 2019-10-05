@@ -4,12 +4,13 @@ def nyc_pigeon_organizer(data)
     attribute_names.reduce({}) do |m, (attribute_name, names)|
       names.each do |name|
         if !organized_hash[name]
-           organized_hash[name] = {attributes => ["#{attribute_name}"]}
-        elsif !organized_hash[name][attributes]
-          organized_hash[name][attributes]= ["#{attribute_name}"]
-        else
-              organized_hash[name][attributes].push("#{attribute_name}")
+           organized_hash[name] = {}
         end
+
+        if !organized_hash[name][attributes]
+          organized_hash[name][attributes]= []
+        end
+          organized_hash[name][attributes].push("#{attribute_name}")
       end
     end
   end
